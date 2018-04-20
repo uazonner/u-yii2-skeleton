@@ -5,11 +5,11 @@
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Yes, it is! Skeleton installed!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">You have successfully created your U Yii2 powered web application.</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p><a class="btn btn-lg btn-success" href="https://github.com/uazonner/u-yii2-skeleton">Get started with U Yii2 Skeleton</a></p>
     </div>
 
     <div class="body-content">

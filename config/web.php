@@ -1,16 +1,16 @@
 <?php
-$params = require_once(__DIR__ . '/params.php');
-$db     = require_once(__DIR__ . '/db.php');
-$mail   = require_once(__DIR__ . '/mail.php');
+$params = require(__DIR__ . '/params.php');
+$db     = require(__DIR__ . '/db.php');
+$mail   = require(__DIR__ . '/mail.php');
 
 /* Routing */
-$routeBackend  = require_once(__DIR__ . '/route.backend.php');
-$routePersonal = require_once(__DIR__ . '/route.personal.php');
-$routeFrontend = require_once(__DIR__ . '/route.frontend.php');
+$routeBackend  = require(__DIR__ . '/route.backend.php');
+$routePersonal = require(__DIR__ . '/route.personal.php');
+$routeFrontend = require(__DIR__ . '/route.frontend.php');
 $route         = array_merge($routeBackend, $routePersonal, $routeFrontend);
 
 $config = [
-    'id'             => 'basic',
+    'id'             => 'skeleton',
     'name'           => 'U Yii2 Skeleton',
     'basePath'       => dirname(__DIR__),
     'timeZone'       => 'Europe/Kiev',
@@ -30,11 +30,11 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass'   => 'app\models\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'frontend/site/error',
         ],
         'mailer' => $mail,
         'log' => [
@@ -48,8 +48,8 @@ $config = [
         ],
         'db' => $db,
         'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName'  => false,
+            'enablePrettyUrl'     => true,
+            'showScriptName'      => false,
             'enableStrictParsing' => true,
 		    'rules'               => $route
         ],
@@ -60,14 +60,14 @@ $config = [
 if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
-        'class' => 'yii\debug\Module',
-        'allowedIPs' => ['127.0.0.1', '::1'],
+        'class'        => 'yii\debug\Module',
+        'allowedIPs'   => ['*']
     ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
-        'allowedIPs' => ['127.0.0.1', '::1'],
+        'class'        => 'yii\gii\Module',
+        'allowedIPs'   => ['*']
     ];
 }
 

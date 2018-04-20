@@ -14,12 +14,15 @@ class SiteController extends FrontendController
      */
     public function actions()
     {
-        return [
+        $parent = parent::actions();
+        $actions = [
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testMe' : null,
             ],
         ];
+
+        return array_merge($parent, $actions);
     }
 
     /**
